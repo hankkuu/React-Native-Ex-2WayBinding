@@ -61,7 +61,9 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',  
+        backgroundColor: 'yellow',
+        marginBottom: 350,
     },
     text: {
         fontWeight: "600",

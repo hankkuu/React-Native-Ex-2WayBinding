@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, ScrollView } from 'react-native';
 import ChildComponent from './ChildComponent';
 import { createStackNavigator } from 'react-navigation';
 
@@ -56,4 +56,7 @@ const styles = StyleSheet.create({
     fontWeight: '200',
     marginBottom: 30,
   },
+  child: {
+    //alignItems: "flex-start"
+  }
 });
