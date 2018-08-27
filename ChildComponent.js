@@ -14,7 +14,8 @@ class ChildComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            textInput: props.text
+            textInput: props.text,
+            clicked: true,
         }
     }
     static propTypes = {
@@ -23,11 +24,11 @@ class ChildComponent extends Component {
     }
 
     render() {
-        const { textInput } = this.state;
-        const { text } = this.props;
+        const { textInput } = this.state;        
+     
         return (
             <View style={styles.container}>
-                <Text>ChildComponent</Text>
+                <Text style={styles.title}>ChildComponent</Text>
                 <TextInput style={styles.text} 
                     onChangeText={this._controllInput} 
                     value={textInput} 
@@ -42,11 +43,16 @@ class ChildComponent extends Component {
     _controllInput = (text) => {
         this.setState({ textInput : text })
     }
+
     _finishEditing = () => {
-        const { textInput } = this.state;
-        //const { updatecomment } = this.props;
-        //updatecomment(textInput);       
-        this.props.navigation.navigate("parent", {text: textInput})
+        const { textInput, clicked } = this.state;
+
+        const { updatecomment } = this.props;
+        updatecomment(textInput);
+
+        // 네비게이터를 이용한 경우 
+        //const { textInput } = this.state;
+        //this.props.navigation.navigate("parent", { text: textInput })
     }
 }
 export default ChildComponent;
@@ -55,11 +61,18 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
     text: {
         fontWeight: "600",
         fontSize: 20,
-        width: width / 2
-    }
+        width: width / 2,
+    },
+    title: {
+        color: 'red',
+        fontSize: 30,
+        marginTop: 50,
+        fontWeight: '200',
+        marginBottom: 30,
+    },
 });

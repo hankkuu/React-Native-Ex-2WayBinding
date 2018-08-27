@@ -27,9 +27,9 @@ export default class ParentComponent extends React.Component {
       <View style={styles.container}>
         <Text style={styles.title} >Parent Component</Text>
         <Text>change your comment : {comment}</Text>
-        <Button title='go child' onPress={() => this.props.navigation.navigate('child') } ></Button>
+        {/* <Button title='go child' onPress={() => this.props.navigation.navigate('child', { clicked: false }) } ></Button> */}
         <ChildComponent updatecomment={this._changecomment} >
-        </ChildComponent>        
+        </ChildComponent>                
       </View>
     );
   }
